@@ -1,20 +1,20 @@
-videoID,Categoria,Duracion,Idioma
-'e9dZQelULDk','Animacion','[0-5]','Any'
-'0UgiJPnwtQU','Animacion','[5-15]','Eng'
-'FavUpD_IjVY','Animacion','[0-5]','Any'
-'eW6hheq8qfg','Animales','[6-15]','Any'
-'JQL25_hoQ1k','Animales','[0-5]','Any'
-'2AP9dfBTcNQ','Animales','[41-60]','Any'
-'bvEHyeph1B4','Arte y Literatura','[6-15]','Eng'
-'-qCngjk3nQw','Arte y Literatura','[6-15]','Eng'
-'K-oIzf3MQdg','Entretenimiento','[16-25]','Eng'
-'JYdi7vxRdqM','Espiritualidad','[16-25]','Eng'
-'G1p6rlDCxq0','Historia','[61-180]','Eng'
-'Rb9gLpdb2nc','Viajes','[16-25]','Esp'
-'kd2KEHvK-q8','Misterio','[16-25]','Eng'
-'I2O7blSSzpI','Misterio','[16-25]','Eng'
-'B6Gi1uKr15Y','Misterio',[26-40],'Esp'
-'2CBCqwn2w64','Misterio','[41-60]','Esp'
-'GLtAJ52OGu8','Videojuegos','[16-25]','Esp'
-'JfFEWkHXq6o','Videojuegos','[16-25]','Esp'
-'YNMkADpvO4w','Tecnologia','[5-15]','Eng'
+videoID,Categoria,Duracion,Idioma,Opinion
+'e9dZQelULDk','Animacion','[0-5]','Any',
+'0UgiJPnwtQU','Animacion','[5-15]','Eng',
+'FavUpD_IjVY','Animacion','[0-5]','Any',
+'eW6hheq8qfg','Animales','[6-15]','Any',
+'JQL25_hoQ1k','Animales','[0-5]','Any',
+'2AP9dfBTcNQ','Animales','[41-60]','Any',
+'bvEHyeph1B4','Arte y Literatura','[6-15]','Eng',
+'-qCngjk3nQw','Arte y Literatura','[6-15]','Eng',
+'K-oIzf3MQdg','Entretenimiento','[16-25]','Eng',
+'JYdi7vxRdqM','Espiritualidad','[16-25]','Eng',
+'G1p6rlDCxq0','Historia','[61-180]','Eng',
+'Rb9gLpdb2nc','Viajes','[16-25]','Esp',
+'kd2KEHvK-q8','Misterio','[16-25]','Eng',
+'I2O7blSSzpI','Misterio','[16-25]','Eng',
+'B6Gi1uKr15Y','Misterio',[26-40],'Esp',
+'2CBCqwn2w64','Misterio','[41-60]','Esp',
+'GLtAJ52OGu8','Videojuegos','[16-25]','Esp',
+'JfFEWkHXq6o','Videojuegos','[16-25]','Esp',
+'YNMkADpvO4w','Tecnologia','[5-15]','Eng',
