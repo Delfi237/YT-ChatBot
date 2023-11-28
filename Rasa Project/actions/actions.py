@@ -178,7 +178,8 @@ class ActionRecommendVideo(Action):
                         cant_vistos_pl = len(prolog_thread.query_async_result()[0]['H'])
        
         historial = tracker.get_slot("recom_history")
-        cant_vistos_sesion = len(historial)
+        if historial:
+            cant_vistos_sesion = len(historial)
         # cantidad de videos vistos por el usuario
         ACTUAL_HISTORY = cant_vistos_sesion + cant_vistos_pl  
         print('El usuario ha visto [',ACTUAL_HISTORY,'] videos.')
