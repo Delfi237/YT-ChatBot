@@ -1,0 +1,33 @@
+version: "3.1"
+
+rules:
+
+- rule: user is sad
+  steps:
+  - intent: mood_unhappy
+  - action: utter_sad
+
+- rule: user is happy
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Tell user bot functions when asked
+  steps:
+  - intent: ask_bot_functions
+  - action: utter_bot_functions
+
+- rule: show search history
+  steps:
+  - intent: ask_for_history
+  - action: action_display_history

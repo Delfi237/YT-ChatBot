@@ -1,0 +1,154 @@
+% CATEGORIAS: categoria(nombre_categoria)
+categoria('Animacion').
+categoria('Animales y Naturaleza').
+categoria('Arte y Literatura').
+categoria('Ciencia y Tecnologia').
+categoria('Deporte').
+categoria('Filosofia y Psicologia').
+categoria('Economia').
+categoria('Entretenimiento').
+categoria('Espiritualidad').
+categoria('Historia y Politica').
+categoria('Misterio y Terror').
+categoria('Musica').
+categoria('Salud y Fitness').
+categoria('Videojuegos').
+categoria('Viajes y Aventuras').
+
+% VIDEOS: video(videoID,Título,Categoria,Duracion,Idioma).
+%
+% videos de Animacion
+video('e9dZQelULDk','Hapiness','Animacion','[0-5]','Any').
+video('0UgiJPnwtQU','Cream by David Firth','Animacion','[5-15]','Eng').
+video('FavUpD_IjVY','Cows & Cows & Cows','Animacion','[0-5]','Any').
+video('xYnv8tHyOJE','Catopolis','Animacion','[10-15]','Eng').
+video('HTDdIO74BuA','Dinner for few | Animated short film by Nassos Vakalis','Animacion','[10-15]','Eng').
+%
+% videos de Animales-Naturaleza
+video('eW6hheq8qfg','Guinea pigs go crazy for water melon','Animales y Naturaleza','[6-15]','Any').
+video('JQL25_hoQ1k','7 Spectacular Moths in Slow Motion!','Animales y Naturaleza','[0-5]','Any').
+video('2AP9dfBTcNQ','Cómo crecen los gatitos: de 0 día a 1 año','Animales y Naturaleza','[41-60]','Any').
+%
+% videos de Arte-Literatura
+video('bvEHyeph1B4','Stanczyk or the Sad Clown Paradox','Arte y Literatura','[6-15]','Eng').
+video('-qCngjk3nQw','The Most Disturbing Painting - A Different Take on Saturn Devouring His Son','Arte y Literatura','[6-15]','Eng').
+video('ppon2ldpJwU','JULIO CORTÁZAR A FONDO - EDICIÓN COMPLETA y RESTAURADA','Arte y Literatura','[61-180]','Esp').
+video('lj4kajdoSfc','JORGE LUIS BORGES 1 A FONDO - EDICIÓN COMPLETA y RESTAURADA','Arte y Literatura','[61-180]','Esp').
+video('Lj8HhXfS8FU','JORGE LUIS BORGES 2 A FONDO - EDICIÓN COMPLETA y RESTAURADA','Arte y Literatura','[61-180]','Esp').
+%
+% videos de Deporte
+%
+% videos de Entretenimiento.
+video('K-oIzf3MQdg','7 Latin Americans Guess Each Others Nationality!! (What country Im From?)','Entretenimiento','[16-25]','Eng').
+%
+% videos de Espiritualidad
+video('JYdi7vxRdqM','6 Things That Helped Me Become Successful & Highly Creative','Espiritualidad','[16-25]','Eng').
+%
+% videos de Filosofia-Psicologia
+video('4hG9wI5-_Lc','8 Psychological Tricks That Actually Work','Filosofia y Psicologia','[6-15]','Eng').
+video('S1g1cQjUguI','TODO LO QUE NECESITAS SABER SOBRE LA ANSIEDAD','Filosofia y Psicologia','[6-15]','Esp').
+% videos de Historia-Politica
+video('G1p6rlDCxq0','World War One (ALL PARTS)','Historia y Politica','[61-180]','Eng').
+video('DgFdq5kT95M','¿Eres de izquierda o de derecha?','Historia y Politica','[6-15]','Esp').
+%
+% videos de Viajes-Aventuras
+video('Rb9gLpdb2nc','Llegué a EGIPTO y todo es IMPACTANTE','Viajes y Aventuras','[16-25]','Esp').
+%
+% videos de Misterio-Terror
+video('kd2KEHvK-q8','The Vanishing of Flight 370','Misterio y Terror','[16-25]','Eng').
+video('I2O7blSSzpI','Cicada 3301: An Internet Mystery','Misterio y Terror','[16-25]','Eng').
+video('B6Gi1uKr15Y','TODO sobre el MISTERIOSO caso de JONBENÉT RAMSEY','Misterio y Terror','[26-40]','Esp').
+video('2CBCqwn2w64','Historias Innecesarias: El Clan Puccio - La Historia definitiva','Misterio y Terror','[41-60]','Esp').
+%
+% videos de Videojuegos
+video('GLtAJ52OGu8','El Videojuego mas Cruel que Conocí','Videojuegos','[16-25]','Esp').
+video('JfFEWkHXq6o','El Mundo mas Vivo Jamás Creado en un Videojuego','Videojuegos','[16-25]','Esp').
+video('WkZHyBc3Xnc','Worlds Hardest Challenge','Videojuegos','[6-15]','Eng').
+%
+% videos de Ciencia-Tecnologia
+video('YNMkADpvO4w','Simulando la evolución de la agresión','Ciencia y Tecnologia','[6-15]','Eng').
+video('0ZGbIKd0XrM','Simulando la selección natural','Ciencia y Tecnologia','[6-15]','Eng').
+video('jKCQsndqEGQ','¿Qué es una Red Neuronal? | Aprendizaje Profundo. Capítulo 1','Ciencia y Tecnologia','[16-25]','Esp').
+
+% videos de Salud-Fitness
+video('czCphrEerwg','¿Cuáles podrían ser las consecuencias de no dormir?','Salud y Fitness','[6-15]','Esp').
+
+% USUARIOS: usuario(nombre_usuario)
+usuario('Delfina').
+/*
+    El usuario de ejemplo ha visto 
+    - 3 videos de 'Animacion'               [ buena reseña: 3 | mala reseña: 0 ]
+    - 2 videos de 'Misterio y Terror'       [ 1 | 1 ]
+    - 1 video de 'Historia y Politica'      [ 0 | 1 ]
+    - 2 videos de 'Ciencia y Tecnologia'    [ 2 | 1 ]
+    - 2 videos de 'Videojuegos'             [ 1 | 1 ]
+*/
+opinion('Delfina','e9dZQelULDk',1).
+opinion('Delfina','0UgiJPnwtQU',1).
+opinion('Delfina','FavUpD_IjVY',1).
+opinion('Delfina','kd2KEHvK-q8',1).
+opinion('Delfina','G1p6rlDCxq0',0).
+opinion('Delfina','B6Gi1uKr15Y',0).
+opinion('Delfina','jKCQsndqEGQ',1).
+opinion('Delfina','YNMkADpvO4w',1).
+opinion('Delfina','GLtAJ52OGu8',1).
+opinion('Delfina','JfFEWkHXq6o',0).
+
+
+
+
+% devuelven TRUE si existe la categor�a especificada
+existe_categoria(Categoria):-
+    categoria(Categoria).
+
+% devuelven TRUE si existe un video con el ID especificado
+existe_video(VideoID):-
+    video(VideoID,_,_,_,_).
+
+% devuelven TRUE si existe un usuario con el nombre especificado
+existe_usuario(Usuario):-
+    usuario(Usuario).
+
+% devuelve TRUE si el video existe y pertenece a la categor�a
+video_pertenece_a_categoria(Video,Categoria):-
+    existe_video(Video), existe_categoria(Categoria), video(Video,_,Categoria,_,_).
+
+% devuelve TRUE si el usuario dado ha visto el video especificado
+ha_visto(Usuario,Video):-
+    existe_usuario(Usuario), existe_video(Video), opinion(Usuario,Video,_).
+
+
+cant_videos(C) :-
+    findall(X, video(X,_,_,_,_), Videos),
+    length(Videos, C).
+
+% devuelve una lista de todos los videos
+all_videos(Videos):-
+    findall(video(ID,Titulo,Categoria,Duracion,Idioma),video(ID,Titulo,Categoria,Duracion,Idioma),Videos).
+
+get_video(ID,Video) :-
+    findall((Categoria,Duracion,Idioma),video(ID,_,Categoria,Duracion,Idioma),Video).
+
+% devuelve una lista de todas las categorias
+all_categorias(Categorias) :-
+    findall(Nombre,categoria(Nombre),Categorias).
+
+all_duraciones(Duraciones) :-
+    findall(Duracion,video(_,_,_,Duracion,_),Duraciones).
+
+all_idiomas(Idiomas) :-
+    findall(Idioma,video(_,_,_,_,Idioma),Idiomas).
+
+% devuelve una lista de todos los videos de cierta categoria
+videos_por_categoria(Categoria,Videos) :-
+    findall(Video,video_pertenece_a_categoria(Video,Categoria),Videos).
+
+% devuelve una lista de todos los videos vistos por un usuario dado
+videos_vistos_por_usuario(Usuario,Historia) :-
+    findall((VideoID,Opinion),opinion(Usuario,VideoID,Opinion),Historia).
+
+% devuelve una lista de todos los videos NO vistos por un usuario dado
+videos_no_vistos_por_usuario(Usuario,NoVistos) :-
+    findall((VideoID,Categoria,Duracion,Idioma),(video(VideoID,_,Categoria,Duracion,Idioma),\+ opinion(Usuario, VideoID, _)),NoVistos).
+
+

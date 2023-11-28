@@ -1,0 +1,97 @@
+version: '3.1'
+intents:
+- affirm
+- ask_bot_functions
+- ask_for_history
+- ask_for_search
+- ask_for_suggestion
+- bot_challenge
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- negative_fb
+- positive_fb
+- repeat_last
+- repeat_search
+- test_action
+responses:
+  utter_hello_stranger:
+  - text: Hola! ¿En qué te puedo ayudar?
+  - text: Buenas! ¿Cómo puedo ayudarte?
+  - text: Hola amigo! ¿Qué puedo hacer por vos?
+  utter_hello_user:
+  - text: Hola! Bonito nombre... Intentare recordarlo!
+  - text: Buenas! Yo me llamo DeltaBot. ¿En qué te ayudo?
+  - text: Hola! Yo soy DeltaBot. ¿Qué puedo hacer por vos?
+  utter_did_that_help:
+  - text: Te ha sido útil mi aporte?
+  utter_happy:
+  - text: Me alegra oír eso! Sigue así :)
+  utter_sad:
+  - text: Uy, eso no suena nada bien! Pero seguro no es nada que un video de gatitos no pueda arreglar... https://www.youtube.com/watch?v=u0XHVssfsYM
+  - text: Qué bajón ;( Quizás esto te anime... https://www.youtube.com/watch?v=TTtsHKKb-CI
+  - text: 'Qué pena oír eso, che! Acá tenés, recordemos tiempos mejores: https://www.youtube.com/watch?v=vrP6Mg8A0_0'
+  utter_goodbye:
+  - text: Adiós!
+  utter_iamabot:
+  - text: Soy un bot implementado en RASA.
+  utter_bot_functions:
+  - text: Soy un bot orientado a la tarea implementado en RASA. Mi misión es asistir a usuarios en la exploración de videos de YouTube. Puedes pedirme que busque un video con tan solo ubicar los términos de búsqueda entre comillas dobles. También puedes solicitarme recomendaciones, ten en cuenta que si me aportas devoluciones podre concerte más y así mejorar mis sugerencias!
+  utter_enter_sk:
+  - text: Por supuesto! Inserta los terminos de la búsqueda entre comillas dobles...
+  - text: Claro! ¿Qué quieres buscar? Asegurate de ingresar tu búsqueda entre comillas dobles...
+  - text: ¿Qué búsqueda quieres hacer? Por favor inserta la búsqueda entre comillas dobles...
+  utter_ask_for_feedback:
+  - text: ¿Qué opinas del video?
+  - text: ¿Qué te ha parecido el video?
+  - text: ¿Qué tal te pareció el video?
+  - text: Entonces... ¿qué te pareció?
+  - text: ¿Y bien? Dime qué te ha parecido
+  utter_good:
+  - text: Me alegra que te haya gustado!
+  - text: Sabía que te gustaría! Hay más de donde vino ese...
+  - text: ¿De verdad te gustó? Qué alivio...
+  utter_bad:
+  - text: Uh, lamento que no te haya gustado. Prometo mejorar!
+  - text: Perdón por mi error, soy nuevo en este trabajo...
+  - text: Uy, le erré... Mil disculpas, si me das otra oportunidad seguro
+actions:
+- action_search_video
+- utter_bot_functions
+- utter_enter_sk
+- utter_hello_user
+- action_display_history
+- action_recommend_video
+- utter_good
+- utter_bad
+- action_update_recom_history
+- action_update_search_history
+- action_set_search_key
+entities:
+- name
+slots:
+  username:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  last_search_key:
+    type: text
+    mappings:
+    - type: custom
+      action: action_set_lsk
+  search_history:
+    type: list
+    mappings:
+    - type: custom
+      action: action_update_search_history
+  recom_history:
+    type: list
+    mappings:
+    - type: custom
+      action: action_update_recom_history
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

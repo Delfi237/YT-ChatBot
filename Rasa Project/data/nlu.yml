@@ -1,0 +1,316 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - buen dia
+    - buenas tardes
+    - hola que tal
+    - buenas
+    - morninnn
+    - buenassssss
+    - como va?
+    - hola
+    - holis
+    - holu
+    - holuuu
+    - buenas!
+    - Hola bot! soy [Delfina](name)
+    - buenas soy [Zoe](name)
+    - holaaaaaaa soy [Emi](name)
+    - holu como tas, mi nombre es [estefano](name)
+    - holaaaaa, soy [Catalina](name)
+    - hey im [Sofi](name)
+    - Hola q tal, me llamo [Guadalupe](name)
+    - [Pablo](name) es mi nombre, saludos!
+    - Buen día! Soy [Belén](name)
+    - holaaa
+    - Me llamo [Ana Julia](name)
+    - mi nombre es [Juan](name)
+    - hola soy [Adriel](name)
+    - dime [Martina](name)
+    - llamame [Juan Bautista](name)
+    - [Ramardo](name) es mi nombre
+    - hola soy [Marcos](name)
+    - hola soy [Martin](name)
+    - holaaa, soy [Juana](name)
+    - hola mi nombre es [Miguel](name)
+    - hola soy [Delfina](name)
+    - hola bot! soy [Delfina](name)
+- intent: goodbye
+  examples: |
+    - chau bot!
+    - chauchis
+    - adios
+    - bye
+    - hasta luego
+    - buenas noches
+    - gudbai
+    - bai bai
+    - que tengas buen dia
+    - nos vemos
+    - adiossssss
+    - que sigas bien
+    - buenas noches!
+    - adios!
+- intent: affirm
+  examples: |
+    - y
+    - yes
+    - yep
+    - claro
+    - si
+    - siii
+    - exacto
+    - sii re
+    - dale
+    - de una
+    - afirmativo
+    - ok
+    - oka
+    - confirmo
+    - verdadero
+    - cierto
+- intent: deny
+  examples: |
+    - n
+    - no
+    - nono
+    - nop
+    - negativo
+    - no realmente
+    - claro que no
+    - falso
+- intent: positive_fb
+  examples: |
+    - l
+    - like
+    - me ha gustado
+    - hermoso video
+    - alto video
+    - buen video gracias
+    - lindo
+    - mg gracias
+    - genial
+    - buen video
+    - el video está bueno
+    - epico
+    - me gusta
+    - excelente video
+    - por supuesto
+    - claro que si
+    - buenísimo
+    - pues claro
+    - es el mejor video que vi en mi vida
+    - Me encanta
+    - me ha gustado mucho el video
+- intent: negative_fb
+  examples: |
+    - d
+    - dislike
+    - malísimo
+    - no me ha gustado
+    - malo
+    - pésimo
+    - horrible
+    - aburrido
+    - no me gusta el video, es aburrido
+    - es demasiado largo
+    - mmm no era lo que buscaba
+    - sinceramente no me agrada
+    - es bastante malo
+    - es de mala calidad, no me gusta
+    - es el peor video del mundo
+    - perdon pero no es para mi
+    - un asco ese video
+    - no me gusta nada
+    - no me gusta eso
+    - ni ahí
+    - gracias pero no
+    - paso
+    - Sinceramente no me ha gustado el video
+- intent: repeat_last
+  examples: |
+    - r
+    - repetir
+    - repite la búsqueda por favor
+    - no me refería a eso, intenta de nuevo
+    - otra vez
+    - otro resultado
+    - otra recomendación
+    - otra búsqueda
+    - repetir operación
+    - hazlo de nuevo
+    - prefiero algo distinto
+    - puedes hacerlo otra vez?
+    - repite eso último por favor
+- intent: mood_great
+  examples: |
+    - perfecto
+    - estoy feliz
+    - estoy radiante :)
+    - estoy maravilloso
+    - me encuentro muy bien gracias
+    - bien
+    - estoy super!
+    - increíble
+    - como un rey
+    - maravilloso
+    - estoy muy bien :)
+    - me siento genial
+    - espectacular
+    - en la cima del mundo
+    - extremadamente alegre
+    - sospechosamente bien
+    - estoy flama
+    - joya:)
+    - ando bien por suerte!
+    - Me encuentro alegre
+    - me siento espectacular
+    - Estoy feliz!
+- intent: mood_unhappy
+  examples: |
+    - tuve un dia horrible
+    - estoy triste
+    - triste
+    - mal, muy mal
+    - no me siento muy bien
+    - estoy decepcionado
+    - super mal
+    - muy triste
+    - infeliz
+    - no muy bien
+    - extremadamente mal
+    - tan triste
+    - terrible
+    - me encuentro pésimo
+    - de mal humor
+    - estoy de malas
+    - maaal
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: ask_for_search
+  examples: |
+    - Puedes buscar el video de "Enlightment Documentary"?
+    - Reproduce la canción "Loca de Shakira"
+    - Busca por favor "experiencias paranormales de usuarios de Reddit"
+    - Estoy buscando ver algo relacionado con "psicología"
+    - buscame un video de "datos curiosos que no conocías hace 5 minutos"
+    - Reproducir "África by Toto"
+    - Pon "los 10 mejores goles de messi"
+    - buscar cualquier video de "Doc Tops"
+    - Quiero buscar un video en específico sobre "la historia de la Tierra".
+    - Estoy buscando un video en particular sobre "cómo hacer pan casero".
+    - porfis buscar "tutorial de SQL"
+    - Quiero ver un video de "Jubilee Middle Ground"
+    - Holaaaa busca cualquier video de "HINDS"
+    - busca "escena final de los miserables por favor"
+    - Quiero ver "los 5 mejores goles de messi"
+    - hola quiero buscar "element by kendrick lamar"
+    - Hola quiero buscar "Love Galore SZA"
+    - Quiero ver videos sobre "gatos".
+    - Encuentra videos de "música clásica" en YouTube.
+    - Buscar videos sobre "tecnología".
+    - Quiero buscar videos de "gatos" en YouTube.
+    - Estoy buscando un "tutorial sobre cocina".
+    - Quiero ver un video sobre "apego emocional de Psych2Go" por favor
+    - Buscar "Party in the Usa de Miley Cyrus"
+    - Quiero ver "Entrevista de la Caja Negra Dillom"
+    - Necesito encontrar un video específico de "yoga para principiantes".
+    - Buscar un video en particular sobre "astronomía".
+    - Encuentra el video de "la entrevista con Elon Musk"
+    - buscar videos de "gatitos"
+    - ver video de "bebés comiendo limón por primera vez"
+    - Entregame el link de búsqueda de "Celtics vs Hits" en Youtube
+    - hola quiero ver videos de "perritos"
+    - quiero realizar una búsqueda
+    - Quiero buscar "SZA"
+    - buscar "ASTROTHUNDER"
+    - quiero buscar videos de "motociclismo"
+    - quiero buscar un video sobre "pandas"
+    - Quiero buscar un video sobre "snorkell"
+    - Quiero realizar una búsqueda.
+    - buscar video
+    - quiero buscar
+    - busqueda
+    - link a videos de "debate presidencial 2023"
+    - buscar "escena final de Big Fish"
+    - Buscar "Trends de TikTok"
+    - Quiero buscar "carrera Tandilia 2023"
+    - quiero buscar "Té para Tres"
+    - quiero buscar "Bill Gates Interview"
+    - entonces quisiera realizar una búsqueda
+    - quiero buscar "redes neuronales introduccion"
+    - ahora busca "robots jugando al futbol"
+    - buscar "abecedario en frances"
+- intent: ask_for_suggestion
+  examples: |
+    - Que video me recomendarias?
+    - No se que mirar, alguna sugerencia?
+    - recomendar video.
+    - Podes sugerirme un video que podria llegar a gustarme?
+    - Recomiendame un video que no haya visto.
+    - Quiero ver algo nuevo.
+    - Sorprendeme.
+    - que me sugieres?
+    - sugerencias?
+    - dame algo nuevo para ver por favor
+    - quiero sugerencias
+    - me recomiendas un nuevo video?
+    - ¿Qué me recomiendas ver?
+    - hazme una sugerencia por favor
+    - Hazme una recomendación.
+    - bot, recomendar algo.
+    - recomendar
+- intent: ask_bot_functions
+  examples: |
+    - qué sabes hacer?
+    - cuáles son tus funciones?
+    - ¿Qué sabes hacer?
+    - ¿Qué puedo preguntarte?
+    - cual es tu misión, bot?
+    - qué servicios prestas
+    - funciones?
+    - qué cosas puedes hacer, bot?
+    - dime qué sabes hacer
+    - puedes hacer tal cosa?
+    - sabes hacer tal cosa?
+    - cuáles son tus habilidades
+    - sos capaz de tanto?
+    - puedo pedirte que hagas esto otro?
+    - ¿Qué cosas puedo pedirte?
+- intent: repeat_search
+  examples: |
+    - repite la búsqueda por favor
+    - repetir
+    - quiero otro resultado
+    - no era lo que buscaba
+    - otra vez
+    - no es lo que busco
+    - quiero repetir la búsqueda
+    - puedes buscar de vuelta?
+    - busca otra vez
+    - repite lo último que busqué
+    - quiero otro link
+    - puedes repetir la busqueda anterior por favor?
+- intent: ask_for_history
+  examples: |
+    - muestrame el historial de búsqueda
+    - quiero ver todos los videos que busqué
+    - ver historial
+    - ver histórico
+    - mostrar movimientos
+    - quiero ver el historial
+    - display historial
+    - registro de mis búsquedas
+    - acceder al historial por favor
+    - me podrías mostrar las búsquedas que he realizado?
+    - registro histórico de mis videos
+    - hola ver historial por favor
+    - ¿qué he buscado antes?
+    - ver mis búsquedas
+    - acceder a buscados
+    - muestrame el historial de busqueda

@@ -1,0 +1,195 @@
+version: "3.1"
+
+stories:
+
+- story: greet user that has no name
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - username: null
+  - action: utter_hello_stranger
+
+- story: greet user with name
+  steps:
+  - intent: greet
+  - slot_was_set:
+    - username: 'Delfina'
+  - action: utter_hello_user
+
+- story: search with no sk
+  steps:
+  - intent: ask_for_search
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: null
+  - action: utter_enter_sk 
+
+- story: recommendation with positive feedback
+  steps:
+  - intent: ask_for_suggestion
+  - action: action_recommend_video
+  - intent: positive_fb
+  - action: utter_good
+
+- story: recommendation with negative feedback
+  steps:
+  - intent: ask_for_suggestion
+  - action: action_recommend_video
+  - intent: negative_fb
+  - action: utter_bad
+
+- story: ideal search video with no fb
+  steps:
+  - intent: ask_for_search
+  - action: action_search_video
+
+- story: search video with repetition request
+  steps:
+  - intent: ask_for_search
+  - action: action_search_video
+  - intent: repeat_search
+  - action: action_search_video
+
+- story: recommend and then search
+  steps:
+  - intent: ask_for_suggestion
+  - action: action_recommend_video
+  - intent: ask_for_search
+  - action: action_search_video
+  - intent: positive_fb
+  - action: utter_good
+
+- story: search video with positive fb
+  steps:
+  - intent: ask_for_search
+  - action: action_search_video
+  - intent: positive_fb
+  - action: utter_good
+
+- story: ideal search video with negative fb
+  steps:
+  - intent: ask_for_search
+  - action: action_search_video
+  - intent: negative_fb
+  - action: utter_bad
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+    entities:
+    - name: Delfina
+  - slot_was_set:
+    - username: Delfina
+  - action: utter_hello_user
+  - intent: ask_for_search
+  - slot_was_set:
+    - last_search_key: Bill Gates Interview
+  - slot_was_set:
+    - search_history:
+      - - Bill Gates Interview
+        - f5NJQiY9AuY
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: Bill Gates Interview
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+    entities:
+    - name: Delfina
+  - slot_was_set:
+    - username: Delfina
+  - action: utter_hello_user
+  - intent: ask_bot_functions
+  - action: utter_bot_functions
+  - intent: ask_for_search
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: null
+  - action: utter_enter_sk
+  - intent: ask_for_search
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: redes neuronales introduccion
+  - intent: ask_for_search
+  - slot_was_set:
+    - last_search_key: M6oDiCQCins
+  - slot_was_set:
+    - search_history:
+      - - redes neuronales introduccion
+        - M6oDiCQCins
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: robots jugando al futbol
+  - intent: repeat_search
+  - slot_was_set:
+    - last_search_key: FaiHVfBmYa4
+  - slot_was_set:
+    - search_history:
+      - - redes neuronales introduccion
+        - M6oDiCQCins
+      - - robots jugando al futbol
+        - FaiHVfBmYa4
+
+- story: first part of demo on init conversation
+  steps:
+  - intent: greet
+    entities:
+    - name: Delfina
+  - slot_was_set:
+    - username: Delfina
+  - action: utter_hello_user
+  - intent: ask_bot_functions
+  - action: utter_bot_functions
+  - intent: ask_for_search
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: ¿Qué es la IA?
+  - slot_was_set:
+    - search_history:
+      - - ¿Qué es la IA?
+        - M6oDiCQCins
+
+- story: second part of demo on search
+  steps:
+  - intent: ask_for_search
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: robots jugando al futbol
+  - slot_was_set:
+    - search_history:
+      - - ¿Qué es la IA?
+        - M6oDiCQCins
+      - - robots jugando al futbol
+        - f5NJQiY9AuY
+  - intent: repeat_search
+  - action: action_search_video
+  - slot_was_set:
+    - last_search_key: robots jugando al futbol
+  - slot_was_set:
+    - search_history:
+      - - ¿Qué es la IA?
+        - M6oDiCQCins
+      - - robots jugando al futbol
+        - f5NJQiY9AuY
+      - - robots jugando al futbol
+        - D4NJQE39Au2
+
+- story: third part of demo story on recommendation
+  steps:
+  - intent: ask_for_history
+  - action: action_display_history
+  - intent: ask_for_suggestion
+  - action: action_recommend_video
+  - intent: positive_fb
+  - slot_was_set:
+    - recom_history:
+      - - id_video
+        - '1'
+  - intent: ask_for_suggestion
+  - action: action_recommend_video
+
+
+  
+
+
