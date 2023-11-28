@@ -65,7 +65,7 @@ def personalized_recom(username):
     with PrologMQI(port=8000) as mqi:
       with mqi.create_thread() as prolog_thread:
           prolog_thread.query(f"consult('{DATA_PATH}')")
-          prolog_thread.query_async(f"videos_no_vistos_por_usuario({username},V)")
+          prolog_thread.query_async(f"videos_no_vistos_por_usuario('{username}',V)")
           candidatos = prolog_thread.query_async_result()[0]['V']
   
   # itera sobre los candidatos para hallar una recomendacion
@@ -97,4 +97,4 @@ def personalized_recom(username):
 #  - 1 video de 'Historia y Politica'      [ 0 | 1 ]
 #  - 2 videos de 'Ciencia y Tecnologia'    [ 2 | 1 ]
 #  - 2 videos de 'Videojuegos'             [ 1 | 1 ]
-recomendacion = personalized_recom('Delfina')
+# recomendacion = personalized_recom('Delfina')

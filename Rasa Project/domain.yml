@@ -56,7 +56,7 @@ responses:
   utter_bad:
   - text: Uh, lamento que no te haya gustado. Prometo mejorar!
   - text: Perdón por mi error, soy nuevo en este trabajo...
-  - text: Uy, le erré... Mil disculpas, si me das otra oportunidad seguro
+  - text: Uy, le erré... Perdón! Me pongo nervioso.
 actions:
 - action_search_video
 - utter_bot_functions

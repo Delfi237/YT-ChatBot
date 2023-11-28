@@ -3,6 +3,7 @@ import re
 import random
 import json
 import os.path
+import time
 from neural_networks import personalized_recom
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
@@ -113,7 +114,7 @@ class ActionRecommendVideo(Action):
         with PrologMQI(port=8000) as mqi:
             with mqi.create_thread() as prolog_thread:
                 # consulta por los videos vistos del usuario
-                prolog_thread.query(f"consult({DATA_PATH})")
+                prolog_thread.query(f"consult('{DATA_PATH}')")
                 prolog_thread.query_async(f"videos_vistos_por_usuario({username},H).")
                 historial = prolog_thread.query_async_result()[0]['H']
                 # itera sobre los videos vistos
@@ -129,26 +130,25 @@ class ActionRecommendVideo(Action):
                     duracion = video_info[1]['args'][0]
                     idioma = video_info[1]['args'][1]
                     # agrega el video al dataset
-                    data.add({"VideoID": f"{video_id}","Categoria": f"{categoria}","Duracion": f"{duracion}","Idioma": f"{idioma}","Opinion": f"{opinion}"})
+                    row = {"VideoID": f"{video_id}","Categoria": f"{categoria}","Duracion": f"{duracion}","Idioma": f"{idioma}","Opinion": f"{opinion}"}
+                    data.add(row)
                     i=i+1
     
     # carga a 'data' los videos vistos por el usuario en la sesión actual (historial de recomendaciones)
-    def cargar_dataset_sesion(data):
-        # a implementar: analogo a cargar_dataset_pl pero desde recom_history como fuente
-        historial = Tracker.get_slot("recom_history")
+    def cargar_dataset_sesion(self, data, historial):
         i = 0
         if historial:
             with PrologMQI(port=8000) as mqi:
                 with mqi.create_thread() as prolog_thread:
-                    prolog_thread.query(f"consult({DATA_PATH})")
+                    prolog_thread.query(f"consult('{DATA_PATH}')")
                     while i<len(historial):
                         dato = historial[i]
                         # obtengo la informacion del video
-                        print(dato)
-                        video_id = dato['args'][0]
+                        video_id = dato[0]
+                        opinion = dato[1]
                         prolog_thread.query_async(f"get_video('{video_id}',V).")
                         video_info = prolog_thread.query_async_result()[0]['V'][0]['args']
-                        opinion = dato['args'][1]
+                        print(video_info)
                         categoria = video_info[0]
                         duracion = video_info[1]['args'][0]
                         idioma = video_info[1]['args'][1]
@@ -164,18 +164,21 @@ class ActionRecommendVideo(Action):
         cant_vistos_pl = 0      # cantidad segun historial de videos vistos en archivo Prolog
 
         username = tracker.get_slot("username")
-
+        print(username)
         # determino si el usuario es conocido - es decir - si existe en el archivo Prolog
         if username:
             with PrologMQI(port=8000) as mqi:
                 with mqi.create_thread() as prolog_thread:
-                    prolog_thread.query(f"consult({DATA_PATH})")
-                    prolog_thread.query_async(f"usuario({username}).")
+                    prolog_thread.query(f"consult('{DATA_PATH}')")
+                    print('ok')
+                    prolog_thread.query_async(f"usuario('Delfina').")
                     conocido = prolog_thread.query_async_result()
                     if conocido:
-                        prolog_thread.query_async(f"videos_vistos_por_usuario({username},H).")
+                        prolog_thread.query_async(f"videos_vistos_por_usuario('{username}',H).")
                         cant_vistos_pl = len(prolog_thread.query_async_result()[0]['H'])
-
+       
+        historial = tracker.get_slot("recom_history")
+        cant_vistos_sesion = len(historial)
         # cantidad de videos vistos por el usuario
         ACTUAL_HISTORY = cant_vistos_sesion + cant_vistos_pl  
         print('El usuario ha visto [',ACTUAL_HISTORY,'] videos.')
@@ -189,18 +192,20 @@ class ActionRecommendVideo(Action):
 
             print('Registro suficiente: la recomendacion es personalizada')
             # creo el dataset
-            data = JSONDataset("ChatBot_new\\actions\\viewed_videos.json")
+            data = JSONDataset("C:\\Users\\Delfina\\OneDrive\\Escritorio\\Delfina\\FACULTAD\\PExp\\YT_ChatBot\\actions\\viewed_videos.json")
             
             # cargo el dataset
             if conocido:
                 self.cargar_dataset_pl(data,username)
             # agrego los datos del historial de recomendaciones
-            self.cargar_dataset_sesion(data)
+            historial = tracker.get_slot("recom_history")
+            self.cargar_dataset_sesion(data,historial)
 
             # con el dataset cargado ejecuto neural_networks para todos los videos no vistos por el usuario
             recom = personalized_recom(data)
             
             # vaciar viewed_videos
+            time.sleep(10)
             data.clear()
 
         dispatcher.utter_message(f"Por supuesto! Tal vez esto te guste... https://www.youtube.com/watch?v={recom}")
@@ -242,7 +247,7 @@ class ActionSetSlotLastSK(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         if nueva_busqueda:
-            return[SlotSet("last_search_key",nueva_busqueda[1])]
+            return[SlotSet("last_search_key",nueva_busqueda[0])]
         return[]
 
 class ActionSearchVideo(Action):
@@ -263,8 +268,10 @@ class ActionSearchVideo(Action):
         elif (str(tracker.get_intent_of_latest_message()) == 'repeat_search'):
             # extracción de la clave de búsqueda: la misma que la de la búsqueda anterior
             search_key_url = tracker.get_slot("last_search_key")
+            print('search_key ultima: ',search_key_url)
             if not search_key_url:
                 dispatcher.utter_message('Mmm, la verdad es que no tengo registro de una búsqueda anterior.')
+                return []
         else:
             return []
         

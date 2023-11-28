@@ -3,11 +3,36 @@ import re
 import random
 import json
 import os.path
+import time
+from neural_networks import personalized_recom
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 from swiplserver import PrologMQI
+
+# TESTEO DE CODIGO
+
+"""
+api_key = 'AIzaSyBOMEHk9dlGu6PQntgjBtydprgQO9JADJ8'     # clave de API - YouTube
+max_resultados=10                                       # cantidad maxima de resultados deseados
+# generación del URL de la búsqueda de YouTube
+youtube_api_url = f'https://www.googleapis.com/youtube/v3/search?q={search_key_url}&key={api_key}&maxResults={max_resultados}&type=video'
+
+# búsqueda mediante solicitud a la API de YouTube
+response = requests.get(youtube_api_url)
+video_data = response.json()
+n = len(video_data)     # cantidad de resultados hallados - n <= max_resultados
+
+# si la búsqueda arroja resultados
+if 'items' in video_data:
+    print('Realizando búsqueda - search key: ',search_key_url,'\n')
+    # arroja un link al azar de los n resultados hallados
+    random_result = random.randint(0, n-1)
+    video_id = video_data['items'][random_result]['id']['videoId']
+
+print(f'https://www.youtube.com/watch?v={video_id}')
+
 
 class JSONDataset():
 
@@ -96,5 +121,4 @@ with PrologMQI(port=8000) as mqi:
             
 
 
-"""
 """
